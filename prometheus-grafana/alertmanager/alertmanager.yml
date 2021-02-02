@@ -17,7 +17,7 @@ inhibit_rules:
   # CAUTION: be sure labels are set. If not, inhibition equal-rule will be executed 
   equal: ['alertname', 'cluster', 'service']
   
-routes:
+route:
   receiver: 'slack-notifications'
   group_by: [alertname, datacenter, app]
 
