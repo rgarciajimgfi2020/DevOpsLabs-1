@@ -65,3 +65,11 @@ services:
       - ./alertmanager:/etc/alertmanager
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
+  
+  # A simple Simple Mail Transfer Protocol server (SMTP) set for testing purposes:
+  smtp:
+    image: namshi/smtp
+    container_name: smtp_relay
+    restart: always
+    ports:
+     - "25:25"
