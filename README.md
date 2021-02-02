@@ -8,7 +8,7 @@ Please, follow the link to the appropiate resources
 
 ### DevOps Monitoring Tools
 - [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
-- COMMING SOON - Sample ElasticSearch-Logstash-Kibana stack.
+- COMING SOON - Sample ElasticSearch-Logstash-Kibana stack.
 - COMING SOON - Sample Kafka application.
 
 ### DevOps RunBooks Tools
