@@ -7,15 +7,14 @@ Please, follow the link to the appropiate resources
 - They are not recommended to be used directly in production environments specially regarding security issues.
 
 ### DevOps Monitoring Tools
-- [`ELK (ElasticSearch-Logstash-Kibana`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/elk) - Sample ElasticSearch-Logstash-Kibana stack.
-- [`Kafka`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/kafka) - Sample Kafka application.
 - [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
+- COMMING SOON - Sample ElasticSearch-Logstash-Kibana stack.
+- COMING SOON- Sample Kafka application.
 
 ### DevOps RunBooks Tools
-- [`Jupyter`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter) - Sample Jupyter Notebook application.
-- [`JupyterHub`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyterhub) - Sample JupyterHUB Notebooks application.
-- [`Jupyter RunBooks`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter-runbooks) - Jupyter RunBooks examples
-
+- COMING SOON- Sample Jupyter Notebook application.
+- COMING SOON- Sample JupyterHUB Notebooks application.
+- COMING SOON- Jupyter RunBooks examples
 
 ### Prerequisites
 
