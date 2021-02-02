@@ -9,12 +9,12 @@ Please, follow the link to the appropiate resources
 ### DevOps Monitoring Tools
 - [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
 - COMMING SOON - Sample ElasticSearch-Logstash-Kibana stack.
-- COMING SOON- Sample Kafka application.
+- COMING SOON - Sample Kafka application.
 
 ### DevOps RunBooks Tools
-- COMING SOON- Sample Jupyter Notebook application.
-- COMING SOON- Sample JupyterHUB Notebooks application.
-- COMING SOON- Jupyter RunBooks examples
+- COMING SOON - Sample Jupyter Notebook application.
+- COMING SOON - Sample JupyterHUB Notebooks application.
+- COMING SOON - Jupyter RunBooks examples
 
 ### Prerequisites
 
