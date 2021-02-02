@@ -1,0 +1,29 @@
+global:
+  # Slack information used for slack notifications.
+  slack_api_url: 'https://hooks.slack.com/services/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'
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@devopslab.info'
+  smtp_auth_username: 'alertmanager'
+  smtp_auth_password: 'password'
+
+# Inhibition rules to mute any warning-level notifications if the same alert is already critical.
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  # Apply inhibition if the alertname is the same.
+  # CAUTION: be sure labels are set. If not, inhibition equal-rule will be executed 
+  equal: ['alertname', 'cluster', 'service']
+  
+routes:
+  receiver: 'slack-notifications'
+  group_by: [alertname, datacenter, app]
+
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+    - send_resolved: true
+      channel: '#devopslab'
+      text: 'https://my-localhost.info/wiki/alerts/{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}'
