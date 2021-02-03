@@ -19,7 +19,8 @@ global:
   
 route:
   receiver: 'slack-notifications'
-  group_by: [alertname, datacenter, app]
+  # group_by: [alertname, datacenter, app]
+  group_by: [...]
 
 receivers:
   - name: 'slack-notifications'
