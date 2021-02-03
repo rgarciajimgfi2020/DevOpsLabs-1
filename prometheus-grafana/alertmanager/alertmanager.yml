@@ -8,14 +8,14 @@ global:
   smtp_auth_password: 'password'
 
 # Inhibition rules to mute any warning-level notifications if the same alert is already critical.
-inhibit_rules:
-- source_match:
-    severity: 'critical'
-  target_match:
-    severity: 'warning'
-  # Apply inhibition if the alertname is the same.
-  # CAUTION: be sure labels are set. If not, inhibition equal-rule will be executed 
-  equal: ['alertname', 'cluster', 'service']
+# inhibit_rules:
+# - source_match:
+#     severity: 'critical'
+#   target_match:
+#     severity: 'warning'
+#   # Apply inhibition if the alertname is the same.
+#   # CAUTION: be sure labels are set. If not, inhibition equal-rule will be executed 
+#   equal: ['alertname', 'cluster', 'service']
   
 route:
   receiver: 'slack-notifications'
