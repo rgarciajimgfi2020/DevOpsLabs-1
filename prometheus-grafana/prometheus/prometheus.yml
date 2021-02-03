@@ -4,7 +4,7 @@ global:
   # Attach these labels to any time series or alerts when communicating with
   # external systems (federation, remote storage, Alertmanager).
   external_labels:
-    monitor: 'codelab-monitor'
+    monitor: 'devopslabs'
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
@@ -30,8 +30,8 @@ rule_files:
 
 # Specifies settings related to the Alertmanager.
 alerting:
-  alert_relabel_configs:
-#   - <relabel_config>
+#  alert_relabel_configs:
+#    - <relabel_config>
   alertmanagers:
     - static_configs:
       - targets: ['localhost:9093'] 
