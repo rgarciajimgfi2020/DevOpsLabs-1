@@ -1,6 +1,8 @@
 global:
+  # Timeout for resolving
+  resolve_timeout: 1m
   # Slack information used for slack notifications.
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: '<a-slack-valid-api-webhook>'
   # The smarthost and SMTP sender used for mail notifications.
   smtp_smarthost: 'localhost:25'
   smtp_from: 'alertmanager@devopslab.info'
@@ -18,13 +20,21 @@ global:
 #   equal: ['alertname', 'cluster', 'service']
   
 route:
-  receiver: 'slack-notifications'
   # group_by: [alertname, datacenter, app]
   group_by: [...]
-
+  # default receiver
+  receiver: 'slack-notifications'
+ 
 receivers:
   - name: 'slack-notifications'
     slack_configs:
-    - send_resolved: true
-      channel: '#devopslab'
+    - channel: '#devopslab'
       text: 'https://my-localhost.info/wiki/alerts/{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}'
+  - name: 'gmail-notifications'
+    email_configs:
+    - to: valid-email-account@valid-domain
+      from: devopslab_monitoring@gmail.com
+      smarthost: smtp.gmail.com:587
+      auth_username: <your-email-username>
+      auth_identity: <your-email-identity>
+      auth_password: <your-email-password>
