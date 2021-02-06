@@ -30,7 +30,7 @@ receivers:
   - name: 'gmail-notifications'
     email_configs:
     - to: valid-email-account@valid-domain
-      from: devopslab_monitoring@gmail.com
+      # from: devopslab_monitoring@gmail.com
       # auth_username: <your-email-username>
       # auth_identity: <your-email-identity>
       # auth_password: <your-email-password>
