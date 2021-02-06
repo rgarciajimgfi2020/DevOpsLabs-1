@@ -18,14 +18,14 @@ After installed, the smtp-relay process will appear in the docker process list
 ```
 
 ### Checking network connectivity to outside email systems
-Execute the next command to ensure there is no network problems in your installations.
+Execute the next command in the DevOpsLab/smtp directory to ensure there is no network problems in your installations.
 The CURL command will try to send a simple test message (stored in the "email-contents.txt" file) to
 the user you define in the "mail-rcpt" parameter (please, ensure you put a valid email address that you will have access to verify correct reception).
 In the user parameter (-u "username:password) you can put any user you want (as if not validated in this example as insecure
 ```
    curl --connect-timeout 15 -v --insecure "smtp://localhost:25" -u "username:password"
 \ --mail-from "sender@example.com" --mail-rcpt "destination@example.com"
-\ -T email-contents.txt --ssl
+\ -T email-test.txt --ssl
 ```
 If success, you will see something similar to this
 ```
