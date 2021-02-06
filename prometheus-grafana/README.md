@@ -48,11 +48,11 @@ services:
     ports:
       - 25:25
 ```
-This compose file will create a stack with two services: `prometheus` and `grafana`; 
+This compose file will create a stack with three main services: `prometheus`, `alertmanager` and `grafana`; 
 Additionally, the compose adds an exporter (node-exporter) as an example of an external source of information
 and set the AlertManager for managing the alerts that are handled by the Prometheus Server.
 
-A SMTP server is also just for testing purpose of alerting systems.
+A SMTP server is also added just for testing purpose of the alerting systems.
 
 When the stack is been deployed, the docker-compose maps port the default ports for each service 
 to the equivalent ports on the host in order to inspect easier the web interface of each service.
@@ -68,17 +68,19 @@ Pulling prometheus (prom/prometheus:)...
 Pulling grafana (grafana/grafana:)...
 Pulling node-exporter (prom/node-exporter)...
 Pulling alertmanager (prom/alertmanager)...
+Pulling smtp-server (namshi/smtp)...
 ...
 Creating prometheus ... done
 Creating grafana    ... done
 Creating node-exporter ... done
 Creating alertmanager ... done
+Creating smtp-server ... done
 Attaching to prometheus, grafana, node-exporter-1, alertmanager
 ```
 
 ## Expected result
 
-Listing containers must show two containers running and the port mapping as below:
+Listing containers must show five containers running and the port mapping as below:
 ```
 $ docker ps
 CONTAINER ID   IMAGE               COMMAND                   CREATED           STATUS         PORTS                    NAMES
@@ -86,6 +88,7 @@ CONTAINER ID   IMAGE               COMMAND                   CREATED           S
 164f0553ed54   grafana/grafana     "/run.sh"                  12 seconds ago   Up 9 seconds   0.0.0.0:3000->3000/tcp   grafana
 c4d479c609c6   prom/node-exporter  "/bin/node-exporter ..."   10 seconds ago   Up 9 seconds   0.0.0.0:9100->9100/tcp   node-exporter-1
 b2e0f0f3c6f4   prom/alertmanager   "/bin/alertmanager -..."   10 seconds ago   Up 9 seconds   0.0.0.0:9093->9093/tcp   alertmanager
+b4f0e0c3f6e4   namshi/smtp         "/bin/entrypoint..."       10 seconds ago   Up 9 seconds   0.0.0.0:25->25/tcp       smtp-server
 ```
 
 Then you can launch each application using the below links in your local web browser:
