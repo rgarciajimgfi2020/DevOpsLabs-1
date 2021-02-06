@@ -34,5 +34,5 @@ alerting:
 #    - <relabel_config>
   alertmanagers:
     - static_configs:
-      - targets: ['localhost:9093'] 
+      - targets: ['alertmanager:9093'] 
 
