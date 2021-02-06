@@ -35,7 +35,7 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     volumes:
-      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yml
       - grafana_lib:/var/lib/grafana
       
   node-exporter:
