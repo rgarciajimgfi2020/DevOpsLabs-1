@@ -4,22 +4,22 @@
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── docker-compose.yml
 ├── grafana
-│   └── datasource.yaml
+│   └── datasource.yml
 ├── prometheus
-│   └── prometheus.yaml
+│   └── prometheus.yml
 │   └── targets
 │       └── prometheus.json
 │       └── grafana.json
 │       └── node-exporter.json
 ├── alertmanager
-│   └── alertmanager.yaml
+│   └── alertmanager.yml
 │   └── alertmanager.conf
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_docker-compose.yml_](docker-compose.yml)
 ```
 services:
   prometheus:
