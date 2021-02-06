@@ -61,7 +61,7 @@ services:
     ports:
       - 9093:9093
     volumes:
-      - "/tmp/prom:/tmp/prom"
+      - /tmp/prom:/tmp/prom
       - ./alertmanager:/etc/alertmanager
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
@@ -72,4 +72,4 @@ services:
     container_name: smtp_relay
     restart: always
     ports:
-     - "25:25"
+     - 25:25
