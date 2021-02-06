@@ -51,9 +51,12 @@ services:
 This compose file will create a stack with two services: `prometheus` and `grafana`; 
 Additionally, the compose adds an exporter (node-exporter) as an example of an external source of information
 and set the AlertManager for managing the alerts that are handled by the Prometheus Server.
+
 A SMTP server is also just for testing purpose of alerting systems.
+
 When the stack is been deployed, the docker-compose maps port the default ports for each service 
 to the equivalent ports on the host in order to inspect easier the web interface of each service.
+
 IMPORTANT NOTICE: Ports 9090, 3000, 9093 and 9100 on the host MUST NOT already in use.
 
 ## Deploy with docker-compose
