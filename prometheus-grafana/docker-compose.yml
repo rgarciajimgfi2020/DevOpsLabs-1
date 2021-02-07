@@ -35,7 +35,7 @@ services:
     networks:
       - public
     volumes:
-      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - grafana_lib:/var/lib/grafana
       
   node-exporter:
