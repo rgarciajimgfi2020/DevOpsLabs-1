@@ -31,7 +31,7 @@ scrape_configs:
 #     and define any other parameter like scrape_interval, refresh_interval, etc...
 #   relabel_configs:
 #     - source_labels: [__meta_ec2_public_ip]
-#       regex: '(.*)'
+#       regex: '(.+)'
 #       target_label: '__address__'
 #       replacement: '${1}:9100'
 #     - source_labels: 
