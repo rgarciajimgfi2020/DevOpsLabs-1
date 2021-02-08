@@ -60,3 +60,8 @@ that will show you a text message like this:
    </body>
 </html>
 ```
+and you would see also the metrics in
+```
+curl http://localhost:9100/metrics
+```
+
