@@ -35,8 +35,8 @@ services:
     networks:
       - public
     volumes:
-      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./grafana/conf/grafana.ini:/etc/grafana/conf/grafana.ini
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
       - grafana_lib:/var/lib/grafana
       
   node-exporter:
