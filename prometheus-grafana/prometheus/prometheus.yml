@@ -22,27 +22,27 @@ scrape_configs:
       - files:
         - /etc/prometheus/targets/*.json
 # Load a directory of JSON configs to do an auto-discovery
-# - job_name: 'ec2-system'
-#   ec2_sd_configs:
-#     - region: eu-west-3 (set your own AWS instance region)
-#       access_key: <secret> (set your own access key)
-#       secret_key: <secret> (set your own secret key)
-#       port: 9100 (define what is required)
+#  - job_name: 'ec2-system'
+#    ec2_sd_configs:
+#      - region: eu-west-3 (set your own AWS instance region)
+#        access_key: <secret> (set your own access key)
+#        secret_key: <secret> (set your own secret key)
+#        port: 9100 (define what is required)
 ##     and define any other parameter like scrape_interval, refresh_interval, etc...
-#   relabel_configs:
-#     - source_labels: [__meta_ec2_public_ip]
-#       regex: '(.+)'
-#       target_label: '__address__'
-#       replacement: '${1}:9100'
-#     - source_labels: 
-#       - '__meta_ec2_tag_Name'
-#       target_label: 'instance'
-#     - source_labels: 
-#       - '__meta_ec2_tag_customer'
-#       target_label: 'customer'
-#     - source_labels: 
-#       - '__meta_ec2_tag_role'
-#       target_label: 'role'
+#    relabel_configs:
+#      - source_labels: [__meta_ec2_public_ip]
+#        regex: '(.+)'
+#        target_label: '__address__'
+#        replacement: '${1}:9100'
+#      - source_labels: 
+#        - '__meta_ec2_tag_Name'
+#        target_label: 'instance'
+#      - source_labels: 
+#        - '__meta_ec2_tag_customer'
+#        target_label: 'customer'
+#      - source_labels: 
+#        - '__meta_ec2_tag_role'
+#        target_label: 'role'
 
 # Rule files specifies a list of files where rules or alerts are specified. 
 # Rules and alerts are read from all matching files.
