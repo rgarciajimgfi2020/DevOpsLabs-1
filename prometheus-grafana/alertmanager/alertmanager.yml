@@ -5,7 +5,7 @@ global:
   # slack_api_url: '<a-slack-valid-api-webhook>'
   
   # The smarthost and SMTP sender used for mail notifications.
-  smtp_smarthost: 'smtp-server:25'
+  smtp_smarthost: 'smtp_server:25'
   smtp_from: 'alertmanager@devopslab.info'
   smtp_require_tls: false
   smtp_auth_username: 'alertmanager'
