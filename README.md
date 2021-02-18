@@ -1,4 +1,6 @@
 # DevOpsLabs
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/blob/main/LICENSE)
+
 ## Examples for the DevOps Course
 
 Please, follow the link to the appropiate resources
