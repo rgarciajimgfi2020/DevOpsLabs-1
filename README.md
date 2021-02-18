@@ -1,4 +1,4 @@
-# DevOpsLab
+# DevOpsLabs
 ## Examples for the DevOps Course
 
 Please, follow the link to the appropiate resources
@@ -7,14 +7,15 @@ Please, follow the link to the appropiate resources
 - They are not recommended to be used directly in production environments specially regarding security issues.
 
 ### DevOps Monitoring Tools
-- [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
-- COMING SOON - Sample ElasticSearch-Logstash-Kibana stack.
-- COMING SOON - Sample Kafka application.
+- [`ELK (ElasticSearch-Logstash-Kibana`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/elk) - Sample ElasticSearch-Logstash-Kibana stack.
+- [`Kafka`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/kafka) - Sample Kafka application.
+- [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
 
 ### DevOps RunBooks Tools
-- COMING SOON - Sample Jupyter Notebook application.
-- COMING SOON - Sample JupyterHUB Notebooks application.
-- COMING SOON - Jupyter RunBooks examples
+- [`Jupyter`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter) - COMING SOON - Sample Jupyter Notebook application.
+- [`JupyterHub`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyterhub) - COMING SOON - Sample JupyterHUB Notebooks application.
+- [`Jupyter RunBooks`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter-runbooks) - COMING SOON - Jupyter RunBooks examples
+
 
 ### Prerequisites
 
