@@ -5,4 +5,4 @@
 # https://www.elastic.co/guide/en/elasticsearch/reference/index.html
 cluster.name: devopslab_cluster
 node.name: prod_devopslab_node_1
-network.host:0.0.0.0
+network.host: 0.0.0.0
