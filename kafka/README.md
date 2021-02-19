@@ -1,6 +1,9 @@
 ## DevOpsLab
 ### Set Kafka (Stream monitoring system) in one single-node installation
 
+This example of Kafka implementation must not be used in a production environment as it is not securely configured.
+The purpose of this lab is shown the concepts of Stream, Topic, Producer and Consumer in a Kafka arquitecture.
+
 Project structure:
 ```
 .
