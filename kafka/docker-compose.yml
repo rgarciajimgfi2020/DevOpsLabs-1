@@ -16,9 +16,9 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_PORT: 2181
-      # ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_CLIENT_PORT: 2181
       ZOO_SERVERS: server.1=zookeeper:2181:3888
-      # ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_TICK_TIME: 2000
       
   ##################################################################################
   # KAFKA MAIN BROKER PROCESSOR                                                    #
