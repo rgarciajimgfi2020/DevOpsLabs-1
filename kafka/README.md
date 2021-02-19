@@ -16,38 +16,90 @@ Project structure:
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
+    ...
   kafka:
-    image: confluentinc/cp-server:latest
+    image: confluentinc/cp-kafka:latest
+    ...
+```
+[_docker-compose-elk.yaml_](docker-compose-elk.yaml)
+```
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ...
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    ...
+  elasticsearch:
+    image: elasticsearch:7.8.0
+    ...
+  logstash:
+    image: logstash:7.10.1
+    ...
+  kibana:
+    image: kibana:7.8.0
+    ...
+  filebeat:
+    image: elastic/filebeat:7.10.2
     ...
 ```
 Alternatively, you could use the images in bitnami/kakfa or in wurstmeister/zookeeper
 
 ## Deploy with docker-compose
-
+When using only the kafka installation
 ```
 $ docker-compose up -d
 Creating network "kafka" with driver "bridge"
 Creating zookeeper ... done
 Creating kafka_broker ... done
+$
+```
+
+When using with elk integration
+```
+$ docker-compose -f docker-compose-elk.yml up -d
+Creating network "kafka" with driver "bridge"
+Creating zookeeper ... done
+Creating kafka_broker ... done
+Creating elasticsearch ... done
+Creating logstash ... done
+Creating kibana ... done
+Creating filebeat ... done
+$
 ```
 
 ## Expected result
 
-If everything is OK, you must see three containers running and the port mapping as displayed below (notice container ID could be different):
+If everything is OK, you must see two containers running and the port mapping as displayed below (notice container ID could be different):
 ```
 $ docker ps
 CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                    PORTS                                                                                            NAMES
-345a3e0f0b5b        zookeeper:6.0.1      "/usr/local/bin/dumb…"   11 seconds ago      Up 2 seconds             0.0.0.0:2181->2181/tcp                                                                           kib
-fd3f0b35b448        kafka:6.0.1          "/usr/local/bin/dumb…"   11 seconds ago      Up 2 seconds             0.0.0.0:9092->9092/tcp                                                                           kib
+345a3e0f0b5b        zookeeper:6.0.1      "/usr/local/bin/dumb…"   11 seconds ago      Up 2 seconds             0.0.0.0:2181->2181/tcp                                                                           zoo
+fd3f0b35b448        kafka:6.0.1          "/usr/local/bin/dumb…"   11 seconds ago      Up 2 seconds             0.0.0.0:9092->9092/tcp                                                                           broker
+$
 ```
-
+or if with elk integration, four aditional containers will be shown
+```
+$ docker ps
+CONTAINER ID  IMAGE                 COMMAND                 CREATED         STATUS                 PORTS                                                NAMES
+345a3e0f0b5b  zookeeper:6.0.1       "/usr/local/bin/dumb…"  11 seconds ago  Up 2 seconds           0.0.0.0:2181->2181/tcp                               zoo
+fd3f0b35b448  kafka:6.0.1           "/usr/local/bin/dumb…"  11 seconds ago  Up 2 seconds           0.0.0.0:9092->9092/tcp                               broker
+45e9b302d0f0  elasticsearch:7.8.0   "/tini -- /usr/local…"  12 seconds ago  Up 2 seconds (healthy) 0.0.0.0:47321->9200/tcp, 0.0.0.0:49156->9300/tcp     els
+164f0553ed54  logstash:7.8.0        "/usr/local/bin/dock…"  13 seconds ago  Up 1 seconds           0.0.0.0:5000->5000/tcp, 0.0.0.0:5044->5044/tcp, 0.0.0.0:9600->9600/tcp, 0.0.0.0:5000->5000/udp   logstash
+fd3f0b35b448  kibana:7.8.0          "/usr/local/bin/dumb…"  14 seconds ago  Up 2 seconds           0.0.0.0:5601->5601/tcp                               kibana
+e2f3bacd4f46  filebeat:latest        "/usr/local/bin/dock…" 12 seconds ago  Up 1 seconds           0.0.0.0:                                             filebeat
+a4f767a4b3c2  nginx:latest          "/docker-entypoint…"    12 seconds ago  Up 1 seconds           0.0.0.0:4000->4000/tcp                               nginx
+$ 
+```
 Then, you can launch each application using the below links in your local web browser:
 
 * Kafka: [`http://localhost:9092`](http://localhost:9092)
+* For the ELK stack, please see how to verify in [https://github.com/JuanLuisGozaloFdez/DevOpsLab/blob/main/elk/README.md](https://github.com/JuanLuisGozaloFdez/DevOpsLab/blob/main/elk/README.md)
 
 Stop and remove the containers
 ```
 $ docker-compose down
+$
 ```
 
 ## How to test this Kafka implementation
