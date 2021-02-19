@@ -112,11 +112,11 @@ To open the terminals, you need to enter inside the container (using *'docker ps
 ### The Producer
 Now, in the Producer Terminal, a **TOPIC** (let's named *test_topic*) must be created linked to the Zookeeper process
 ```
-$> /bin/kafka-topics --create --zookeeper zookeeper:2181 --partitions 1 --replication-factor 1 --topic testtopic
+$> kafka-topics --create --zookeeper zookeeper:2181 --partitions 1 --replication-factor 1 --topic testtopic
 ```
 Then, start the process that will publish datastream to the Kafka Broker from the standard input (keybaord) we are going to use for testing
 ```
-$> /bin/kafka-console-producer --broker-list localhost:9092 --from-beginning --topic testtopic --timeout-ms 10000
+$> kafka-console-producer --broker-list localhost:9092 --topic testtopic
 ```
 Also, the process can be injected with data comming from an external process, let's simulate with a loop
 ```
