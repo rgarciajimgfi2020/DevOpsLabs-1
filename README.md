@@ -14,9 +14,9 @@ Please, follow the link to the appropiate resources
 - [`Prometheus-Grafana`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/prometheus-grafana) - Sample Prometheus and Grafana applications.
 
 ### DevOps RunBooks Tools
-- [`Jupyter`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter) - COMING SOON - Sample Jupyter Notebook application.
+- [`Jupyter`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/jupyter) - Sample Jupyter Notebook application.
 - [`JupyterHub`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyterhub) - COMING SOON - Sample JupyterHUB Notebooks application.
-- [`Jupyter RunBooks`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyter-runbooks) - COMING SOON - Jupyter RunBooks examples
+- [`Jupyter RunBooks`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/jupyter-runbooks) - Jupyter RunBooks examples
 
 
 ### Prerequisites
