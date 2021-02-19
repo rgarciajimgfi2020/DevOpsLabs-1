@@ -1,7 +1,7 @@
 version: '2.1'
 
 services:
-  zoo1:
+  zookeeper:
     image: zookeeper:3.4.9
     hostname: zookeeper
     container_name: zookeeper
