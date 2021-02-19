@@ -1,0 +1,16 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /usr/share/filebeat/logs/*.log
+
+#output.elasticsearch:
+#  hosts: ["elasticsearch:9200"]
+output.kafka:
+  hosts: ["broker:9092"]
+  topic: "devopslab"
+  coded.json: 
+    pretty: false
+
+setup.kibana:
+  host: "kib:5601"
