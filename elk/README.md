@@ -1,5 +1,10 @@
-## DevOpsLab
-### Set ELK (Elasticsearch, Logstash, FileBeat and Kibana) in one single-node installation
+# DevOpsLab
+## Set ELK (Elasticsearch, Logstash, FileBeat and Kibana) in one single-node installation
+
+The purpose of this lab is shown the basics of an ELK stack, how the modules are interconnected 
+and how the data flows through the elements.
+
+This example of ELK implementation **must not** be used in a production environment as it is not securely configured.
 
 Project structure:
 ```
@@ -49,7 +54,7 @@ Creating filebeat ... done
 
 ## Expected result
 
-If everything is OK, you must see three containers running and the port mapping as displayed below (notice container ID could be different):
+If everything is OK, you must see six containers running and the port mapping as displayed below (notice container ID could be different):
 ```
 $ docker ps
 CONTAINER ID  IMAGE                 COMMAND                  CREATED         STATUS                 PORTS                                               NAMES
@@ -72,4 +77,30 @@ Then, you can verify each application using the below links in your local web br
 Stop and remove the containers (add -v if data must be deleted)
 ```
 $ docker-compose down
+```
+---
+---
+## F.A.Q.
+
+### CEREBRO: How connect to ElasticSearch from the Cerebro screen?
+You must type `http://elasticsearch:9200` (this is the hostname that is provided in the docker-compose for the service "elasticsearch". 
+Do not use localhost (as you are login from inside the docker container)
+
+### FILEBEAT: How to change the output destination in the filebeat module from logstash to elasticsearch.
+To change the output destination, edit the "filebeat.yml" file in the "filebeat/conf" directory.
+Then, uncomment the lines that describe the output related to elasticsearch.
+And ensure the ones related to logstash are commented, as only one output destination is allowed.
+
+### FILEBEAT: How to extract the log information from Nginx to Filebeat
+    1- Connect to the FileBeat container opening a console.
+```
+docker exec -it filebeat /bin/bash
+```
+    2- When connected, execute the command to enable the nginx configuration inside the Filebeat container. If the reply is that you are not authorised, then reconnect again to the container adding the "-u root" modifier.
+```
+./filebeat –E "filebeat.config.modules.path=./modules.d/*.yml" modules enable nginx
+```
+    3- Then, Filebeat is ready to load the standard pre-defined dashboards to kibana (if required)
+```
+./filebeat setup
 ```
