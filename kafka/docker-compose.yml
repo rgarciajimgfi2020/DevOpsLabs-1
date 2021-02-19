@@ -12,8 +12,8 @@ services:
       ZOO_PORT: 2181
       ZOO_SERVERS: server.1=zookeeper:2888:3888
     volumes:
-      - ./data/zookeeper/data:/data
-      - ./data/zookeeper/datalog:/datalog
+      - /tmp/zookeeper/data:/data
+      - /tmp/zookeeper/datalog:/datalog
 
   kafka:
     image: confluentinc/cp-kafka:5.5.1
@@ -30,7 +30,7 @@ services:
       KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     volumes:
-      - ./data/kafka/data:/var/lib/kafka/data
+      - /tmp/kafka/data:/var/lib/kafka/data
       - ./tests:/usr/bin/tests
     depends_on:
       - zookeeper
