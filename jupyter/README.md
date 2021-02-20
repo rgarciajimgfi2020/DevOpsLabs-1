@@ -1,15 +1,18 @@
 ## DevOpsLab
-### Set Jupyter in one-single node installation
+### Set Jupyter in one-single node installation with some runbooks for testing
+
+The purpose of this lab is to show how to use Jupyter Notebooks to create 
+and execute Operational RunBooks in DevOps.
+In a real production environment the docker will not require postgress inside.
 
 Project structure:
 ```
 .
-├── data
 ├── docker-compose.yml
 ├── jupyter
 │   └── Dockerfile
-├── runbooks
-└── README.md
+├── data
+└── runbooks
 ```
 
 [_docker-compose.yaml_](docker-compose.yaml)
@@ -57,6 +60,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 Then you can launch each application using the below links in your local web browser:
 
 * Jupyter: [`http://localhost:8888`](http://localhost:8888)
+
+After started, some example runbooks can be accesed from inside the Jupyter desktop in the "runbook" folder of this repository
 
 Stop and remove the containers. Use `-v` to remove the volumes if looking to erase all data.
 ```
