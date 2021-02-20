@@ -9,8 +9,15 @@ output.elasticsearch:
 #output.kafka:
 #  hosts: ["broker:9092"]
 #  topic: "devopslab"
-#  coded.json: 
+#  codec.json: 
 #    pretty: false
 
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  filebeat.modules:
+    - module: system
+    - module: kafka
+    - module: nginx
+    
 setup.kibana:
   host: "kib:5601"
