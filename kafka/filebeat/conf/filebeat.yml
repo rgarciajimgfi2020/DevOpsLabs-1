@@ -1,9 +1,17 @@
+###########################################################
+# Define inputs to Filebeat
+# Multiple inputs are allowed
+###########################################################
 filebeat.inputs:
 - type: log
   enabled: true
   paths:
     - /usr/share/filebeat/logs/*.log
 
+###########################################################
+# Define output of the Filebeat.
+# ONLY ONE OUTPUT PER FILEBEAT INSTANCE IS ALLOWED
+###########################################################
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
 #output.kafka:
@@ -15,12 +23,19 @@ output.elasticsearch:
 #  codec.json: 
 #    pretty: false
 
+###########################################################
+# Define standard predefined sources
+###########################################################
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
-  filebeat.modules:
+
+filebeat.modules:
     - module: system
     - module: kafka
     - module: nginx
     
+###########################################################
+# Define kibana for auto dashboard setup import (optional)
+###########################################################
 setup.kibana:
   host: "kib:5601"
