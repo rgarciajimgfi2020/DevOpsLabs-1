@@ -16,7 +16,6 @@ Please, follow the link to the appropiate resources
 ### DevOps RunBooks Tools
 - [`Jupyter`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/jupyter) - Sample Jupyter Notebook application.
 - [`JupyterHub`](https://github.com/JuanLuisGozaloFdez/DevOpsLab/tree/main/jupyterhub) - COMING SOON - Sample JupyterHUB Notebooks application.
-- [`Jupyter RunBooks`](https://github.com/JuanLuisGozaloFdez/DevOpsLabs/tree/main/jupyter-runbooks) - Jupyter RunBooks examples
 
 
 ### Prerequisites
