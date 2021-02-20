@@ -92,15 +92,25 @@ Then, uncomment the lines that describe the output related to elasticsearch.
 And ensure the ones related to logstash are commented, as only one output destination is allowed.
 
 ### FILEBEAT: How to extract the log information from Nginx to Filebeat
-    1- Connect to the FileBeat container opening a console.
+  1- Connect to the FileBeat container opening a console.
 ```
 docker exec -it filebeat /bin/bash
 ```
-    2- When connected, execute the command to enable the nginx configuration inside the Filebeat container. If the reply is that you are not authorised, then reconnect again to the container adding the "-u root" modifier.
+  2- When connected, execute the command to enable the nginx configuration inside the Filebeat container. If the reply is that you are not authorised, then reconnect again to the container adding the "-u root" modifier.
 ```
 ./filebeat –E "filebeat.config.modules.path=./modules.d/*.yml" modules enable nginx
 ```
-    3- Then, Filebeat is ready to load the standard pre-defined dashboards to kibana (if required)
+  3- Then, Filebeat is ready to load the standard pre-defined dashboards to kibana (if required)
 ```
 ./filebeat setup
+```
+### FILEBEAT: How to verify that the configurarion is working
+Execute the following command that will repy OK if everything is OK in the configuration file.
+```
+docker exec -it filebeat /usr/share/filebeat/filebeat test config
+```
+### FILEBEAT: How to verify that the configurarion is working
+Execute the following command that will repy OK if output connection is OK.
+```
+docker exec -it filebeat /usr/share/filebeat/filebeat test output
 ```
