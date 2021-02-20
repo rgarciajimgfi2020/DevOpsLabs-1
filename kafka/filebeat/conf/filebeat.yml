@@ -7,7 +7,7 @@ filebeat.inputs:
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
 #output.kafka:
-#  hosts: ["broker:9092"]
+#  hosts: ["broker:19092"]
 #  topic: "devopslab"
 #  codec.json: 
 #    pretty: false
