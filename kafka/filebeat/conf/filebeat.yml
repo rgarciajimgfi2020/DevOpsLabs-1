@@ -9,6 +9,9 @@ output.elasticsearch:
 #output.kafka:
 #  hosts: ["broker:19092"]
 #  topic: "devopslab"
+#  required_ack: -1
+#  codec.format:
+#    string: '%{[timestamp]} %{[message]}'
 #  codec.json: 
 #    pretty: false
 
