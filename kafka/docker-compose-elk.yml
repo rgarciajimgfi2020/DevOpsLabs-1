@@ -114,7 +114,7 @@ services:
     container_name: metricbeat
     command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
     volumes:
-      -./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - ./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - /proc:/hostfs/proc:ro
       - /:/hostfs:ro
       - /var/run/docker.sock:/var/run/docker.sock
