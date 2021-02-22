@@ -120,7 +120,7 @@ $> kafka-console-producer --broker-list localhost:9092 --topic testtopic
 ```
 Also, the process can be injected with data comming from an external process, let's simulate with a loop
 ```
-$> for x in {1..100}: do echo $x; done | /bin/kafka-console-producer --broker-list localhost:9092 --topic testtopic 
+$> for x in {1..100}; do echo $x; done | /bin/kafka-console-producer --broker-list localhost:9092 --topic testtopic 
 ```
 
 ### The Consumer
