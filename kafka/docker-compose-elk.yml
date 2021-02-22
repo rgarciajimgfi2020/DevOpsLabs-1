@@ -107,25 +107,22 @@ services:
   #      max-file: "50"
         
   ##################################################################################
-  # METRICBEAT NODE                                                                  #
+  # METRICBEAT NODE                                                                #
   ##################################################################################
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:7.11.1
     container_name: metricbeat
-    hostname: metricbeat
     command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
     volumes:
       -./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - /proc:/hostfs/proc:ro
-#      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
       - /:/hostfs:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - ./metricbeat/data/:/usr/share/metricbeat/data
+#      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
     environment:
       - ELASTICSEARCH_HOST="elasticsearch:9200"
       - KIBANA_HOST="kib:5601"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t   
     logging:
       driver: "json-file"
       options:
