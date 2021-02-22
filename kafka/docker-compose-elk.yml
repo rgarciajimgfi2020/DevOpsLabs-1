@@ -91,43 +91,43 @@ services:
   ##################################################################################
   # FILEBEAT NODE                                                                  #
   ##################################################################################
-  #filebeat:
-  #  image: elastic/filebeat:7.10.2
-  #  container_name: filebeat
-  #  volumes:
-  #    - ./filebeat/logs:/usr/share/filebeat/logs
-  #    - ./filebeat/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml
-  #  command: ["--strict.perms=false"]
-  #  stdin_open: true # docker run -i
-  #  tty: true        # docker run -t   
-  #  logging:
-  #    driver: "json-file"
-  #    options:
-  #      max-size: "10m"
-  #      max-file: "50"
-        
-  ##################################################################################
-  # METRICBEAT NODE                                                                #
-  ##################################################################################
-  metricbeat:
-    image: docker.elastic.co/beats/metricbeat:7.11.1
-    container_name: metricbeat
-    command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
+  filebeat:
+    image: elastic/filebeat:7.10.2
+    container_name: filebeat
     volumes:
-      - ./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
-      - /proc:/hostfs/proc:ro
-      - /:/hostfs:ro
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./metricbeat/data/:/usr/share/metricbeat/data
-#      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
-    environment:
-      - ELASTICSEARCH_HOST="elasticsearch:9200"
-      - KIBANA_HOST="kib:5601"
+      - ./filebeat/logs:/usr/share/filebeat/logs
+      - ./filebeat/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    command: ["--strict.perms=false"]
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t   
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "50"
+        
+  ##################################################################################
+  # METRICBEAT NODE                                                                #
+  ##################################################################################
+  #metricbeat:
+  #  image: docker.elastic.co/beats/metricbeat:7.11.1
+  #  container_name: metricbeat
+  #  command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
+  #  volumes:
+  #    - ./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+  #    - /proc:/hostfs/proc:ro
+  #    - /:/hostfs:ro
+  #    - /var/run/docker.sock:/var/run/docker.sock
+  #    - ./metricbeat/data/:/usr/share/metricbeat/data
+# #     - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+  #  environment:
+  #    - ELASTICSEARCH_HOST="elasticsearch:9200"
+  #    - KIBANA_HOST="kib:5601"
+  #  logging:
+  #    driver: "json-file"
+  #    options:
+  #      max-size: "10m"
+  #      max-file: "50"
         
 ##################################################################################
 # NETWORKS                                                                       #
