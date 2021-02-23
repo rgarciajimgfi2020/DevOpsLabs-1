@@ -1,0 +1,32 @@
+services:
+  #postgres-db:
+  #  image: postgres
+  #  container_name: db
+  #  hostname: db
+  #  #restart: always
+  #  ports:
+  #    - "5432:5432"
+  #  environment:
+  #    POSTGRES_USER: data
+  #    POSTGRES_PASSWORD: data
+  #    POSTGRES_DB: DEMO
+  #    PG_DATA: "/data"
+  #  volumes:
+  #    - pg_data:/var/lib/postgresql/data
+  #    - ./dbscripts/:/docker-entrypoint-initdb.d/
+ 
+  jupyter:
+    build:
+      context: ./jupyter
+    container_name: jupyter
+    hostname: jupyter
+    ports:
+      - "8888:8888"
+    #links:
+    #  - postgres-db
+    volumes:
+      - ./runbooks:/runbooks
+      - /tmp/data:/data
+
+#volumes:
+#  pg_data:
