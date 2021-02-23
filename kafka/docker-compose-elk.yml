@@ -92,12 +92,16 @@ services:
   # FILEBEAT NODE                                                                  #
   ##################################################################################
   filebeat:
-    image: elastic/filebeat:7.10.2
+    image: docker.elastic.co/beats/filebeat:7.11.1
     container_name: filebeat
     volumes:
       - ./filebeat/logs:/usr/share/filebeat/logs
       - ./filebeat/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./filebeat/conf/filebeat_user:/etc/sysconfig/filebeat:ro
+      - /var/log/syslog:/var/log/syslog:ro
+      - /var/log/auth.log:/var/log/auth.log:ro
     command: ["--strict.perms=false"]
+    user: root
     stdin_open: true # docker run -i
     tty: true        # docker run -t   
     logging:
@@ -106,30 +110,7 @@ services:
         max-size: "10m"
         max-file: "50"
         
-  ##################################################################################
-  # METRICBEAT NODE                                                                #
-  ##################################################################################
-  #metricbeat:
-  #  image: docker.elastic.co/beats/metricbeat:7.11.1
-  #  container_name: metricbeat
-  #  command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
-  #  volumes:
-  #    - ./metricbeat/conf/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
-  #    - /proc:/hostfs/proc:ro
-  #    - /:/hostfs:ro
-  #    - /var/run/docker.sock:/var/run/docker.sock
-  #    - ./metricbeat/data/:/usr/share/metricbeat/data
-# #     - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
-  #  environment:
-  #    - ELASTICSEARCH_HOST="elasticsearch:9200"
-  #    - KIBANA_HOST="kib:5601"
-  #  logging:
-  #    driver: "json-file"
-  #    options:
-  #      max-size: "10m"
-  #      max-file: "50"
-        
-##################################################################################
+#################################################################################
 # NETWORKS                                                                       #
 ##################################################################################
 # Default network will be started

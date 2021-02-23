@@ -23,33 +23,21 @@ filebeat.modules:
   auth:
     enabled: true
     var.paths: ["/var/log/auth.log"]
-#    - module: kafka
-#- module: nginx
-#  access:
-#    enabled: true
-#    var.paths: ["/var/log/nginx/nginx.log"]
-#  error:
-#    enabled: true
-#    var.paths: ["/var/log/nginx/error.log"]
 
 ###########################################################
 # Define output of the Filebeat.
 # ONLY ONE OUTPUT PER FILEBEAT INSTANCE IS ALLOWED
 ###########################################################
-output.elasticsearch:
-  hosts: ["elasticsearch:9200"]
+#output.elasticsearch:
+#  hosts: ["elasticsearch:9200"]
 #output.console:
 #  pretty: true
-#output.kafka:
-#  hosts: ["broker:19092"]
-#  topic: "devopslab"
-#  required_ack: -1
-#  codec.format:
-#    string: '%{[timestamp]} %{[message]}'
-#  codec.json: 
-#    pretty: false
+output.kafka:
+  hosts: ["broker:19092"]
+  topic: "devopslab"
+  codec.json: 
+    pretty: false
 
-    
 ###########################################################
 # Define kibana for auto dashboard setup import (optional)
 ###########################################################
